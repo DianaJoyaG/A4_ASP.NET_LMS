@@ -1,0 +1,16 @@
+@page "{id:int}"
+@model EditReaderModel
+
+<h2>Edit Reader</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Reader.IDReader" />
+    <div class="form-group">
+        <label asp-for="Reader.NameReader" class="control-label"></label>
+        <input asp-for="Reader.NameReader" class="form-control" />
+        <span asp-validation-for="Reader.NameReader" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="./Index">Cancel</a>
+</form>

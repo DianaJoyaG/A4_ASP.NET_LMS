@@ -1,0 +1,28 @@
+﻿@page
+@model CreateBookModel
+
+<h2>Create a New Book</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Book.Title" class="control-label"></label>
+        <input asp-for="Book.Title" class="form-control" />
+        <span asp-validation-for="Book.Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Book.Author" class="control-label"></label>
+        <input asp-for="Book.Author" class="form-control" />
+        <span asp-validation-for="Book.Author" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Book.Description" class="control-label"></label>
+        <textarea asp-for="Book.Description" class="form-control"></textarea>
+        <span asp-validation-for="Book.Description" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+<a asp-page="./Index">Back to List</a>

@@ -1,0 +1,48 @@
+@page
+@model IndexBorrowingModel
+
+<h2>Borrowing List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Book Title</th>
+            <th>Author</th>
+            <th>Reader</th>
+            <th>Borrowed Date</th>
+            <th>Returned Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model.Borrowings != null)
+        {
+            @foreach (var borrowing in Model.Borrowings)
+            {
+                var book = Model.Books.FirstOrDefault(b => b.IDBook == borrowing.IDBook);
+                var reader = Model.Readers.FirstOrDefault(r => r.IDReader == borrowing.IDReader);
+
+                <tr>
+                    <td>@book?.Title</td>
+                    <td>@book?.Author</td>
+                    <td>@reader?.NameReader</td>
+                    <td>@borrowing.BorrowedDate.ToShortDateString()</td>
+                    <td>@borrowing.ReturnedDate?.ToShortDateString()</td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@borrowing.IDBorrowing">Edit</a> |
+                        <a asp-page="./Delete" asp-route-id="@borrowing.IDBorrowing">Delete</a>
+                    </td>
+                </tr>
+            }
+        }   
+
+        else
+        {
+        <p>No borrowings found.</p>
+        }
+
+    </tbody>
+</table>
+
+<a asp-page="./Create">Create New Borrowing</a>

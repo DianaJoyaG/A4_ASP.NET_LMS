@@ -1,0 +1,29 @@
+@page
+@model IndexReaderModel
+
+<h2>Readers List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reader in Model.Readers)
+    {
+        <tr>
+            <td>@reader.IDReader</td>
+            <td>@reader.NameReader</td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@reader.IDReader">Edit</a> |
+                <a asp-page="./Delete" asp-route-id="@reader.IDReader">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<a asp-page="./Create">Add New Reader</a>

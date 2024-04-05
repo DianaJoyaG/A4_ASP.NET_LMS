@@ -1,0 +1,19 @@
+@page "{id:int}"
+@model DeleteBorrowingModel
+
+<h2>Delete Borrowing</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Borrowing.IDBorrowing" />
+
+    <div>
+        Are you sure you want to delete this borrowing?
+        <ul>
+            <li>Book ID: @Model.Borrowing.IDBook</li>
+            <li>Borrowed by ID Reader: @Model.Borrowing.IDReader on @Model.Borrowing.BorrowedDate.ToString("d")</li>
+        </ul>
+    </div>
+
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-page="./Index" class="btn btn-secondary">Cancel</a>
+</form>

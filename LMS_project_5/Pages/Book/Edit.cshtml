@@ -1,0 +1,26 @@
+﻿@page "{id:int}"
+@model EditBookModel
+
+<h2>Edit Book</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Book.IDBook" />
+    <div class="form-group">
+        <label asp-for="Book.Title" class="control-label"></label>
+        <input asp-for="Book.Title" class="form-control" />
+        <span asp-validation-for="Book.Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Book.Author" class="control-label"></label>
+        <input asp-for="Book.Author" class="form-control" />
+        <span asp-validation-for="Book.Author" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Book.Description" class="control-label"></label>
+        <textarea asp-for="Book.Description" class="form-control"></textarea>
+        <span asp-validation-for="Book.Description" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+
+<a asp-page="./Index">Back to List</a>

@@ -1,0 +1,37 @@
+@page "{id:int}"
+@model EditBorrowingModel
+
+<h2>Edit Borrowing</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Borrowing.IDBorrowing" />
+
+    <div class="form-group">
+        <label asp-for="Borrowing.IDBook" class="control-label"></label>
+        <select asp-for="Borrowing.IDBook" asp-items="Model.Books" class="form-control">
+            <option value="">-- Select Book --</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Borrowing.IDReader" class="control-label"></label>
+        <select asp-for="Borrowing.IDReader" asp-items="Model.Readers" class="form-control">
+            <option value="">-- Select Reader --</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Borrowing.BorrowedDate" class="control-label"></label>
+        <input asp-for="Borrowing.BorrowedDate" class="form-control" type="date" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Borrowing.ReturnedDate" class="control-label"></label>
+        <input asp-for="Borrowing.ReturnedDate" class="form-control" type="date" />
+        <span asp-validation-for="Borrowing.ReturnedDate" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+
+<a asp-page="./Index">Back to List</a>

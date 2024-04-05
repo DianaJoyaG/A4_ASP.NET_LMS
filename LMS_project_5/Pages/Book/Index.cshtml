@@ -1,0 +1,31 @@
+﻿@page
+@model IndexBookModel
+
+<h2>Books List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model.Books)
+        {
+        <tr>
+            <td>@book.Title</td>
+            <td>@book.Author</td>
+            <td>@book.Description</td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@book.IDBook">Edit</a> |
+                <a asp-page="./Delete" asp-route-id="@book.IDBook">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="./Create">Create New Book</a>
